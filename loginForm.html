@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to my page</title>
+</head>
+<body>
+    <form action="" method="post">
+    <h1>Fill Your Details</h1>
+
+    <label>UserName</label><input name="UN" type="text" value="" placeholder="Enter your username" ><br><br>
+    <label>Password</label><input name="PS" type="text" value="" placeholder="Enter your password" ><br><br>
+    <input type="button" name="sb" value="login"/>
+    </form>
+
+
+    <?php
+    $con=mysqil_connect('localhost','root',"",'Recode');
+    if(isset($_POST['sb']))
+    {
+
+    $Name=$_POST['UN'];
+    $Pass=$_POST['PS'];
+
+    $query="INSERT INTO register(NAME,PASS) VALUES('$Name','$Pass')";
+    $run=mysqil_query($con,$query);
+    }
+    ?>
+</body>
+</html>

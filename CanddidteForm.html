@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<body>
+      <h1> Welcome to Student Portal </h1>
+      
+    <form action="insert.php" , methods="post">
+        <fieldset>
+            <legend>Enter your Details</legend>
+        <label>FirstName</label> <input type="text" name="fname" placeholder="Enter your firstname" value="">
+
+        <label>MiddleName</label> <input type="text" name="mname" placeholder="Enter your middlename" value="">
+
+        <label>LastName</label> <input type="text" name="lname" placeholder="Enter your lastname" value=""><br><br>
+
+        <label>ContectNumber</label> <input type="tel" name="Phone" placeholder="Enter your MobileNumber" ><br><br>
+
+        <label>EmailID</label> <input type="email" name="Email" placeholder="Enter your EmailAddres" ><br><br>
+
+        <label>Date of Birth</label> <input type="date" name="DOB" /><br><br>
+
+        <label>URL</label> <input type="url" name="url" /><br><br
+
+        <label>Qulification</label> <select name="Qc" />
+                                             <option value="BE">B.tech</option>
+                                             <option value="ME">m.tech</option>
+                                             <option  value="DIP">Diploma</option>
+                                             <option value="ITI">ITI</option>
+                                    </select>
+        
+
+        <label> Gender</label> <input type="radio" name="gender" id="male" value="m"> <label for="male">Male</label> <input type="radio" name="gender" id="female" value="f"><label for="female">Female</label><br><br>
+
+        <label>Country</label> <select name="cy">
+                                    <option value="In">India</option>
+                                    <option value="Ne">Nepal</option>
+                                    <option value="Bh">Bhuttan</option>
+                                    <option value="Bn">Bangladesh</option>
+                                </select>
+
+        <label>State</label> <select name="st">
+                                    <option value="MP">MadhayPradesh</option>
+                                    <option value="UP">UatterPradesh</option>
+                                    <option value="UK">Utrakhand</option>
+                                    <option value="RJ">Rajsthan</option>
+                                </select>
+
+
+        <label> Upload File</label><input type="file" accept="image/*" name="image" /><br><br>
+        <input type="submit" name="sb" value="Save"/>
+        <input type="reset"/>
+
+    </fieldset>
+    </form>
+    <?php
+    $con=mysqil_connect('localhost','root',"",'deepak')
+    if(isset($_POST['sb']))
+    {
+        $fname=$_POST['fname'];
+        $mname=$_POST['mname'];
+        $lname=$_POST['lname'];
+        $Phone=$_POST['Phone'];
+        $Email=$_POST['Email'];
+        $DOB=$_POST['DOB'];
+        $url=$_POST['url'];
+        $Qc=$_POST['Qc'];
+        $gender=$_POST['gender'];
+        $cy=$_POST['cy'];
+        $st=$_POST['st'];
+        $image=$_POST['image'];
+        $query="INSERT INTO studentf (fname,mname,lname,Phone,Email,DOB,url,Qc,gender,cy,st,image) VALUES('$fname','mname','lname','Phone','Email','DOB','url','Qc','gender','cy','st,'image');
+        $run=mysqil_query($con,$query)
+    }
+    
+    ?>
+    <script src=""></script>
+</body>
+</html>
